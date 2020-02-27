@@ -12,16 +12,16 @@ var knexPg = require("knex")({
     host: "127.0.0.1",
     user: "postgres",
     password: "",
-    database: "travis_ci_test"
+    database: "test"
   }
 });
 var knexMysql = require("knex")({
   client: "mysql",
   connection: {
     host: "127.0.0.1",
-    user: "travis",
-    password: "",
-    database: "travis_ci_test"
+    user: "testuser",
+    password: "password",
+    database: "test"
   }
 });
 
