@@ -1,0 +1,45 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:  
+    - uses: actions/checkout@v2
+    - name: Setup MySQL
+      uses: mirromutth/mysql-action@v1.1
+      with:
+        # The port of host
+        host port: 3306
+        # The port of container
+        container port: 3306
+        # Version of MySQL to use
+        # MYSQL_ROOT_PASSWORD - root superuser password
+        # MYSQL_DATABASE - name for the default database that is created
+        mysql database: travis_ci_test 
+        # MYSQL_USER - create the specified user with superuser power for created database
+        mysql user: travis
+    - name: Setup PostgreSQL
+      uses: Harmon758/postgresql-action@v1.0.0
+      with:
+        # POSTGRES_DB - name for the default database that is created
+        postgresql db: travis_ci_test
+        # POSTGRES_USER - create the specified user with superuser power
+        postgresql user: postgres
+        # POSTGRES_PASSWORD - superuser password
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    #- run: npm run build --if-present
+    - run: npm test
+      env:
+        CI: true
