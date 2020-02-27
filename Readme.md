@@ -1,14 +1,6 @@
 # Connect Session Knex
 
-
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Node.js Version][node-image]][node-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][dependencies-image]][dependencies-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
-
-[![NPM][npm-image]][npm-url]
+![Test](https://github.com/neuemedienmacher/connect-session-knex/workflows/Test/badge.svg?branch=master)
 
 connect-session-knex is an [express-session](https://github.com/expressjs/session) store backed by PostgreSQL, MySQL, MariaDB, MSSQL, Oracle or SQLite3, via the [knex.js](http://knexjs.org/) library.
 
