@@ -35,8 +35,9 @@ jobs:
         # POSTGRES_DB - name for the default database that is created
         postgresql db: test
         # POSTGRES_USER - create the specified user with superuser power
-        postgresql user: postgres
+        postgresql user: testuser
         # POSTGRES_PASSWORD - superuser password
+        postgresql password: password  
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
